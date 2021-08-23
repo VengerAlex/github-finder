@@ -4,17 +4,22 @@ class Search extends React.Component {
     state = {
         text: ''
     }
-
     onChange = (e) => {
         this.setState({text: e.target.value})
     }
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.searchUser(this.state.text);
-        this.setState({text: ''})
+        if(this.state.text === ''){
+            this.props.setAlert('Please enter something', 'light')
+        }else{
+            this.props.searchUser(this.state.text);
+            this.setState({text: ''})
+        }
     }
 
     render() {
+        const {showClear, clearUser} = this.props;
+
         return (
             <div>
                 <form
@@ -30,8 +35,8 @@ class Search extends React.Component {
                     />
                     <input type='submit' value='Search' className='btn bg-success btn-block'/>
                 </form>
-                {this.props.showClear && <button
-                    onClick={this.props.clearUser}
+                {showClear && <button
+                    onClick={clearUser}
                     className="btn btn-block btn-light">
                     Clear
                 </button>}
