@@ -183,6 +183,9 @@ img {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
 }
+.btn-black{
+  background-color: #000;
+}
 
 .grid-3 {
   display: grid;
@@ -281,7 +284,7 @@ img {
 .bg-success,
 .badge-success,
 .alert-success {
-  background: var(--success-color);
+  background: #181717;
   color: #fff;
 }
 
