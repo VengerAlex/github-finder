@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import UserItem from "./UserItem";
 import Spinner from "../layouts/Spinner";
+import githubContext from "../../context/github/GithubContext";
 
-const Users = ({users, loading}) => {
+const Users = () => {
+    const gbContext = useContext(githubContext);
+    const {loading, users} = gbContext;
 
     return (
         loading
